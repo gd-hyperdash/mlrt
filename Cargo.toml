@@ -1,0 +1,23 @@
+[package]
+name = "mlrt"
+version = "1.0.0"
+edition = "2021"
+description = "ML Runtime Library"
+repository = "https://github.com/gd-hyperdash/ML/mlrt"
+
+[lib]
+name = "mlrt"
+crate-type = ["cdylib"]
+
+[features]
+default = []
+thread-safe = []
+spinlock = ["thread-safe"]
+
+[dependencies]
+mlsys = { path = "./mlsys" }
+mldl = { path = "./mldl" }
+lazy_static = "1.4.0"
+nohash-hasher = "0.2.0"
+fnv = "1.0.7"
+spin = { version = "0.9.3", default-features = false, features = ["mutex", "spin_mutex"] }
